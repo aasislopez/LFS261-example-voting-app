@@ -58,3 +58,5 @@ Note
 ----
 
 The voting application only accepts one vote per client. It does not register votes if a vote has already been submitted from a client.
+
+[![Build Status](http://127.0.0.1:8080/buildStatus/icon?job=instavote%2Fworker+build)](https://eighty-cobras-slide.loca.lt/job/instavote/job/worker%20build/)
