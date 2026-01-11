@@ -4,7 +4,11 @@ pipeline {
         maven 'maven 3.9.8'
     }
     stages{ 
-        stage("build"){ 
+        stage("build"){
+            stage("build"){ 
+                when{ 
+                    changeset "**/worker/**" 
+                 } 
             steps{ 
                 echo 'Compiling worker app' 
                 dir('worker'){ 
@@ -12,7 +16,10 @@ pipeline {
                 } 
             } 
         } 
-        stage("test"){ 
+        stage("test"){
+            when{ 
+                changeset "**/worker/**"
+            } 
             steps{ 
                 echo 'Running Unit Tests on worker app'
                 dir('worker'){
@@ -20,7 +27,11 @@ pipeline {
                 }
             }            
         } 
-        stage("package"){ 
+        stage("package"){
+            when{
+                branch 'master' 
+                changeset "**/worker/**" 
+            } 
             steps{ 
                 echo 'Packaging worker app'
                 dir('worker'){
