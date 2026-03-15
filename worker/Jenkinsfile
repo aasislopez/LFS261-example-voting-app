@@ -47,7 +47,7 @@ fingerprint: true }
         }
 	failure{
 	   slackSend (channel: "instavote-cd", message: "BuildFailed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)") }  
-	s uccess{
+	success{
 	   slackSend (channel: "instavote-cd", message: "BuildSucceeded - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
 	}
     } 
