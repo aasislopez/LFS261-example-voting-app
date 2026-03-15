@@ -44,6 +44,11 @@ fingerprint: true }
     post{ 
         always{
             echo 'Building multibranch pipeline for worker is completed..' 
-        } 
+        }
+	failure{
+	   slackSend (channel: "instavote-cd", message: "BuildFailed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)") }  
+	s uccess{
+	   slackSend (channel: "instavote-cd", message: "BuildSucceeded - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
+	}
     } 
 }
