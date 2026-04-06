@@ -17,8 +17,8 @@ RUN npm ci && \
    mv /usr/local/app/node_modules /node_modules
 
 COPY . .
-ENV PORT 80
+ENV PORT=80
 EXPOSE 80
 
-ENTRYPOINT ["/usr/bin/tini", "--""]
+ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["node", "server.js"]
